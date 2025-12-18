@@ -19,8 +19,9 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          # Sửa lại cho khớp với tên Secret bạn đã tạo
+          # Phải dùng đúng tên DOCKERHUB bạn đã tạo trong Repository secrets
           username: ${{ secrets.DOCKERHUB }}
+          # Phải dùng đúng tên DOCKERHUB_TOKEN bạn đã tạo trong Repository secrets
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
@@ -28,4 +29,5 @@ jobs:
         with:
           context: .
           push: true
+          # Đẩy lên đúng repository duy2004/deploywebbe
           tags: duy2004/deploywebbe:latest
